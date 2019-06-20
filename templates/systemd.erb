@@ -1,0 +1,13 @@
+[Unit]
+Description=<%= @service_name %> Daemon
+After=syslog.target network.target
+
+[Service]
+User=<%= @user %>
+Group=<%= @group %>
+Type=simple
+ExecStart=/usr/bin/mono <%= @install_path %>/<%= @executable %> -nobrowser -data <%= @base_path %>
+
+TimeoutStopSec=20
+[Install]
+WantedBy=multi-user.target
