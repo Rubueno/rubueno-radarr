@@ -78,7 +78,7 @@ class radarr::install (
     user         => $user,
     group        => $group,
   } ->
-  exec { 'move files to correct folder':
+  exec { 'move radarr files to correct folder':
     command => "/usr/bin/mv ${install_path}/Radarr/* ${install_path}",
     creates => "${install_path}/${executable}",
   }
